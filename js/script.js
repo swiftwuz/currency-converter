@@ -15,6 +15,19 @@ for (let i = 0; i < dropList.length; i++) {
         let optionTag =  `<option value="${currency_code}" ${selected}>${currency_code}</option>`;
         dropList[i].insertAdjacentHTML("beforeend", optionTag);
     }    
+
+    dropList[i].addEventListener("change", e =>{
+        loadFlag(e.target); 
+    })
+}
+
+function loadFlag(element){
+    for (code in countrycode){
+        if (code == element.value){
+            let imgTag = element.parentElement.querySelector("img ");
+            imgTag.src = `https://countryflagsapi.com/png/${countrycode[code]}`; 
+        }
+    }
 }
 
 getButton.addEventListener("click", e =>{
@@ -22,9 +35,9 @@ getButton.addEventListener("click", e =>{
     getExchangeRate();
 })
 
-window.addEventListener("load", () =>{
-    getExchangeRate();
-});
+// window.addEventListener("load", () =>{
+//     getExchangeRate();
+// });
 
 function getExchangeRate(){
     const amount = document.querySelector(".amount input");
