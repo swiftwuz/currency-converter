@@ -39,6 +39,17 @@ getButton.addEventListener("click", e =>{
 //     getExchangeRate();
 // });
 
+const exchangeIcon = document.querySelector(".drop-list .icon");
+exchangeIcon.addEventListener("click", () =>{
+    let tempCode = fromCurrency.value;
+    fromCurrency.value = toCurrency.value;
+    toCurrency.value = tempCode;
+    loadFlag(fromCurrency);
+    loadFlag(toCurrency);
+    getExchangeRate();
+
+})
+
 function getExchangeRate(){
     const amount = document.querySelector(".amount input");
     const exchangeRateTxt = document.querySelector("form .exchange-rate");
