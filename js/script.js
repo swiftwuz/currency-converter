@@ -66,5 +66,5 @@ function getExchangeRate(){
         let totalAmount = (amountVal * exchangeRate).toFixed(2);
         exchangeRateTxt.innerText = `${amountVal} ${fromCurrency.value} = ${totalAmount} ${toCurrency.value}`;
         console.log(totalAmount)
-    });
+    }); 
 }
